@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://github.com/Reyy-btv1/rvpyro">
-        <img src="https://docs.pyrogram.org/_static/pyrogram.png" alt="rvpyro" width="128">
+        <img src="logo.png" alt="rvpyro" width="128">
     </a>
     <br>
     <b>Telegram MTProto API Framework for Python</b>
