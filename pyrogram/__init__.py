@@ -58,3 +58,9 @@ __all__ = [
     "emoji",
     "enums",
 ]
+
+try:
+    import pyromod
+except ImportError:
+    pass
+
