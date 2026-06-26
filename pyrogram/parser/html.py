@@ -179,13 +179,16 @@ class HTML:
                 language = getattr(entity, "language", "") or ""
                 start_tag = f'<{name} language="{language}">' if language else f"<{name}>"
                 end_tag = f"</{name}>"
-            elif entity_type == MessageEntityType.EXPANDABLE_BLOCKQUOTE:
+            elif entity_type in (
+                MessageEntityType.BLOCKQUOTE,
+                MessageEntityType.EXPANDABLE_BLOCKQUOTE
+            ):
                 name = "blockquote"
-                start_tag = f"<{name} expandable>"
+                is_expandable = getattr(entity, "collapsed", False) or entity_type == MessageEntityType.EXPANDABLE_BLOCKQUOTE
+                start_tag = f"<{name} expandable>" if is_expandable else f"<{name}>"
                 end_tag = f"</{name}>"
             elif entity_type in (
                 MessageEntityType.CODE,
-                MessageEntityType.BLOCKQUOTE,
                 MessageEntityType.SPOILER,
             ):
                 name = entity_type.name.lower()
